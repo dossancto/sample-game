@@ -3409,6 +3409,12 @@ checksum = "20870f649af7073d53e38067b2a84312175d56ea15217e1b15bc83506ec50afb"
 [[package]]
 name = "level"
 version = "0.1.0"
+dependencies = [
+ "bevy",
+ "bevy_skein",
+ "log",
+ "tracing",
+]
 
 [[package]]
 name = "level_gateway"
@@ -3583,6 +3589,7 @@ version = "0.1.0"
 dependencies = [
  "bevy",
  "bevy_skein",
+ "level",
  "log",
  "tracing",
 ]
