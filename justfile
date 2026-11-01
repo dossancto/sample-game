@@ -1,0 +1,2 @@
+run:
+	bevy r

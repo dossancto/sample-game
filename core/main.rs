@@ -39,6 +39,6 @@ struct Character {
 
 fn startup() -> impl Scene {
     bsn! {
-        WorldAssetRoot("001/misc/001.gltf#Scene0")
+        WorldAssetRoot("demo.gltf#Scene0")
     }
 }
