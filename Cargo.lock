@@ -4015,6 +4015,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "level_utils"
+version = "0.1.0"
+dependencies = [
+ "avian3d",
+ "bevy",
+ "bevy_ahoy",
+ "bevy_trenchbroom",
+ "level_gateway",
+]
+
+[[package]]
 name = "lewton"
 version = "0.10.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4194,6 +4205,8 @@ dependencies = [
  "bevy_trenchbroom",
  "keybinds",
  "level",
+ "level_gateway",
+ "level_utils",
  "log",
  "player",
  "player_gateway",

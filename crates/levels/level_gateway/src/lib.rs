@@ -6,4 +6,5 @@ pub enum CollisionLayer {
     Default,
     Player,
     Sensor,
+    Prop
 }

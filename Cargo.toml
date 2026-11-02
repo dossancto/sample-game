@@ -1,6 +1,6 @@
 [workspace]
 resolver = "3"
-members = ["core", "crates/keybinds/keybinds", "crates/keybinds/keybinds_gateway", "crates/levels/level", "crates/levels/level_gateway", "crates/player/player", "crates/player/player_gateway", "crates/third_parties"]
+members = ["core", "crates/keybinds/keybinds", "crates/keybinds/keybinds_gateway", "crates/levels/level", "crates/levels/level_gateway", "crates/levels/level_utils", "crates/player/player", "crates/player/player_gateway", "crates/third_parties"]
 
 
 [workspace.dependencies]
@@ -27,6 +27,7 @@ bevy_trenchbroom = {version = "0.14.0", features = ["avian_f32"]}
 
 level = { path = "./crates/levels/level" }
 level_gateway = { path = "./crates/levels/level_gateway" }
+level_utils = { path = "./crates/levels/level_utils/" }
 
 player = {path = "./crates/player/player"}
 player_gateway = {path = "./crates/player/player_gateway"}
