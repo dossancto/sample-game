@@ -1,0 +1,23 @@
+// Game: foxtrot
+// Format: Quake2 (Valve)
+// entity 0
+{
+"mapversion" "220"
+"wad" ""
+"classname" "worldspawn"
+"property 1" ""
+// brush 0
+{
+( -1904 -64 -16 ) ( -1904 -63 -16 ) ( -1904 -64 -15 ) darkmod/stone/brick/rough_big_blocks02_cornerstone_dark [ 0 -1 0 0 ] [ 0 0 -1 0 ] 90 0.1 0.1
+( -64 -1808 -16 ) ( -64 -1808 -15 ) ( -63 -1808 -16 ) darkmod/stone/brick/rough_big_blocks02_cornerstone_dark [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 0.1 0.1
+( -64 -64 0 ) ( -63 -64 0 ) ( -64 -63 0 ) darkmod/stone/brick/rough_big_blocks02_cornerstone_dark [ -1 0 0 0 ] [ 0 -1 0 0 ] 270 0.1 0.1
+( 64 64 16 ) ( 64 65 16 ) ( 65 64 16 ) darkmod/stone/brick/rough_big_blocks02_cornerstone_dark [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 0.1 0.1
+( 64 13648 16 ) ( 65 13648 16 ) ( 64 13648 17 ) darkmod/stone/brick/rough_big_blocks02_cornerstone_dark [ -1 0 0 0 ] [ 0 0 -1 0 ] 90 0.1 0.1
+( 11776 64 16 ) ( 11776 64 17 ) ( 11776 65 16 ) darkmod/stone/brick/rough_big_blocks02_cornerstone_dark [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 0.1 0.1
+}
+}
+// entity 1
+{
+"classname" "chair"
+"origin" "152 206 24"
+}
