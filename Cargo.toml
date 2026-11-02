@@ -1,10 +1,10 @@
 [workspace]
 resolver = "3"
-members = ["core", "crates/levels/level", "crates/levels/level_gateway", "crates/player/player", "crates/player/player_gateway"]
+members = ["core", "crates/keybinds/keybinds", "crates/keybinds/keybinds_gateway", "crates/levels/level", "crates/levels/level_gateway", "crates/player/player", "crates/player/player_gateway", "crates/third_parties"]
 
 
 [workspace.dependencies]
-bevy = "0.20"
+bevy = "0.19"
 bevy_skein = "0.6"
 
 # Set max log levels. This helps avoid unwanted low-severity log spam, which can affect performance.
@@ -17,10 +17,19 @@ tracing = { version = "0.1", features = [
     "release_max_level_warn",
 ] }
 
-level = { path = "./crates/levels/level" }
+avian3d = "0.7.0"
+bevy_enhanced_input = "0.26"
+bevy_ahoy = "0.2.0"
 
-avian3d = "0.8.0"
-bevy_enhanced_input = "0.27.2"
+## Local Crates
+
+level = { path = "./crates/levels/level" }
+level_gateway = { path = "./crates/levels/level_gateway" }
+
+player = {path = "./crates/player/player"}
+player_gateway = {path = "./crates/player/player_gateway"}
+
+third_parties = { path = "./crates/third_parties" }
 
 [workspace.lints.clippy]
 

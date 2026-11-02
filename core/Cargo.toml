@@ -12,7 +12,10 @@ bevy.workspace = true
 bevy_skein.workspace = true
 log.workspace = true
 tracing.workspace = true
+
 level.workspace = true
+player.workspace = true
+third_parties.workspace = true
 
 [lints]
 workspace = true
