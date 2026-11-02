@@ -31,6 +31,8 @@ player_gateway = {path = "./crates/player/player_gateway"}
 
 third_parties = { path = "./crates/third_parties" }
 
+keybinds = {path = "./crates/keybinds/keybinds"}
+
 [workspace.lints.clippy]
 
 # Bevy supplies arguments to systems via dependency injection, so it's natural for systems to

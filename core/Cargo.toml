@@ -16,6 +16,7 @@ tracing.workspace = true
 level.workspace = true
 player.workspace = true
 third_parties.workspace = true
+keybinds.workspace = true
 
 [lints]
 workspace = true

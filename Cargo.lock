@@ -3743,6 +3743,12 @@ dependencies = [
 [[package]]
 name = "keybinds"
 version = "0.1.0"
+dependencies = [
+ "bevy",
+ "bevy_ahoy",
+ "bevy_enhanced_input",
+ "player_gateway",
+]
 
 [[package]]
 name = "keybinds_gateway"
@@ -3969,6 +3975,7 @@ version = "0.1.0"
 dependencies = [
  "bevy",
  "bevy_skein",
+ "keybinds",
  "level",
  "log",
  "player",
