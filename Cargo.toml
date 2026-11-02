@@ -6,6 +6,7 @@ members = ["core", "crates/levels/level", "crates/levels/level_gateway", "crates
 [workspace.dependencies]
 bevy = "0.20"
 bevy_skein = "0.6"
+
 # Set max log levels. This helps avoid unwanted low-severity log spam, which can affect performance.
 log = { version = "0.4", features = [
     "max_level_debug",
@@ -18,12 +19,15 @@ tracing = { version = "0.1", features = [
 
 level = { path = "./crates/levels/level" }
 
-# Idiomatic Bevy code often triggers these lints, and the CI workflow treats them as errors.
-# In some cases they may still signal poor code quality however, so consider commenting out these lines.
+avian3d = "0.8.0"
+bevy_enhanced_input = "0.27.2"
+
 [workspace.lints.clippy]
+
 # Bevy supplies arguments to systems via dependency injection, so it's natural for systems to
 # request more than 7 arguments -- which triggers this lint.
 too_many_arguments = "allow"
+
 # Queries that access many components may trigger this lint.
 type_complexity = "allow"
 
