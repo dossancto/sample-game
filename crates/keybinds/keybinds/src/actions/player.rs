@@ -5,6 +5,7 @@ use bevy_enhanced_input::prelude::*;
 use player_gateway::Player;
 
 pub(super) fn plugin(app: &mut App) {
+    app.add_input_context::<Player>();
     app.add_observer(setup_player_actions);
 }
 
