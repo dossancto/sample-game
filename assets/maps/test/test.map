@@ -24,10 +24,20 @@
 // entity 2
 {
 "classname" "lamp_sitting"
-"origin" "472 -216 24"
+"origin" "184 40 24"
 }
 // entity 3
 {
 "classname" "lamp_sitting"
 "origin" "1208 424 24"
+}
+// entity 4
+{
+"classname" "lamp_sitting"
+"origin" "168 -24 24"
+}
+// entity 5
+{
+"classname" "lamp_sitting"
+"origin" "152 -72 24"
 }

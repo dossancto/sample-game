@@ -7,7 +7,7 @@ pub struct CollectableItemStats {
 }
 
 impl CollectableItemStats {
-    pub fn mass(self) -> f64 {
+    pub fn mass(&self) -> f64 {
         self.volume * self.density
     }
 }

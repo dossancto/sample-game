@@ -5125,6 +5125,7 @@ name = "player"
 version = "0.1.0"
 dependencies = [
  "avian3d",
+ "bag_gateway",
  "bevy",
  "bevy_ahoy",
  "interaction_gateway",
