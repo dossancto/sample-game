@@ -5,6 +5,7 @@ use bevy::{
     prelude::*,
 };
 use bevy_trenchbroom::prelude::*;
+use level_gateway::Screen;
 use level_utils::editors::trenchbroom::spawning::setup_prop;
 use player_gateway::Player;
 
@@ -41,9 +42,10 @@ fn main() {
             player::plugin,
             keybinds::plugin,
         ))
-        .insert_resource(ClearColor(tailwind::SKY_200.into()))
+        .insert_resource(ClearColor(tailwind::SKY_800.into()))
         .add_systems(Startup, setup)
         .add_observer(add_player)
+        .init_state::<Screen>()
         .run();
 }
 
@@ -51,10 +53,16 @@ fn setup(mut commands: Commands, assets: Res<AssetServer>) {
     commands.spawn(WorldAssetRoot(assets.load("maps/test/test.map#Scene")));
 }
 
-fn add_player(insert: On<Insert, Chair>, mut commands: Commands, spawner: Query<&Transform>) {
+fn add_player(
+    // TODO: Change the Chair to some player spawner
+    insert: On<Insert, Chair>,
+    mut next_screen: ResMut<NextState<Screen>>,
+    mut commands: Commands, spawner: Query<&Transform>) {
+
     let Ok(transform) = spawner.get(insert.entity).copied() else {
         return;
     };
 
+    next_screen.set(Screen::Gameplay);
     commands.spawn((Player, transform));
 }
