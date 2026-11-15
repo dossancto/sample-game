@@ -13,6 +13,7 @@ use interaction_gateway::{
 };
 use player_gateway::Player;
 use third_parties::packages::avian3d::CollisionLayer;
+use utils::find_in_ancestors;
 
 #[derive(Debug, Component, Default)]
 pub(crate) struct InteractionLocked;
@@ -94,6 +95,7 @@ fn cancel_interaction(
 fn active_interaction(
     _on: On<Ongoing<InteractionAction>>,
     interactables_q: Query<(&ReadyForInteract, Option<&Interacting>, &Interactable)>,
+    parents_q: Query<&ChildOf>,
     interation_configuration: Single<&InterationConfiguration>,
     player: Single<(&GlobalTransform, Entity), With<InteractionSourceCamera>>,
     spatial_query: SpatialQuery,
@@ -121,22 +123,24 @@ fn active_interaction(
         return;
     };
 
-    commands.entity(hit.entity).remove::<InteractionLocked>();
-
-    let Ok((_is_hitteable, interacting, interactable)) = interactables_q.get(hit.entity) else {
+    let Some((entity, (_is_hitteable, interacting, interactable))) =
+        find_in_ancestors(hit.entity, &interactables_q, &parents_q)
+    else {
         return;
     };
+
+    commands.entity(entity).remove::<InteractionLocked>();
 
     if let Some(interacting) = interacting {
         if interacting.time_to_interact.is_finished() == false {
             return;
         }
 
-        commands.entity(hit.entity).remove::<Interacting>();
-        commands.trigger(TriggerInteraction { entity: hit.entity });
+        commands.entity(entity).remove::<Interacting>();
+        commands.trigger(TriggerInteraction { entity });
     } else {
         commands
-            .entity(hit.entity)
+            .entity(entity)
             .insert_if_new(Interacting::new(interactable.time_to_interact));
     }
 }
