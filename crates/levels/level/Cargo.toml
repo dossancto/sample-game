@@ -10,6 +10,8 @@ log.workspace = true
 tracing.workspace = true
 bevy_trenchbroom.workspace = true
 avian3d.workspace = true
+level_utils.workspace = true
+interaction_gateway.workspace = true
 
 [lints]
 workspace = true

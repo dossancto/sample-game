@@ -4025,6 +4025,8 @@ dependencies = [
  "bevy",
  "bevy_skein",
  "bevy_trenchbroom",
+ "interaction_gateway",
+ "level_utils",
  "log",
  "tracing",
 ]

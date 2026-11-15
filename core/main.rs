@@ -1,35 +1,11 @@
-use avian3d::prelude::*;
 use bevy::{
     color::palettes::tailwind,
     gltf::{GltfPlugin, convert_coordinates::GltfConvertCoordinates},
     prelude::*,
 };
-use bevy_trenchbroom::prelude::*;
-use interaction_gateway::{extensions::add_interactable::{AddInteractable, CanInteract}, handlers::collect::InteractionEnd};
+use level::props::general::model::Chair;
 use level_gateway::Screen;
-use level_utils::editors::trenchbroom::spawning::setup_prop;
 use player_gateway::Player;
-
-#[point_class(
-    base(Transform, Visibility),
-    model("models/darkmod/furniture/seating/wchair1.gltf")
-)]
-#[derive(Clone)]
-#[reflect(Component)]
-#[component(on_add = setup_prop::<Chair>(RigidBody::Dynamic, ColliderConstructor::ConvexHullFromMesh))]
-struct Chair;
-
-impl CanInteract for Chair {}
-
-#[point_class(
-    base(Transform, Visibility),
-    model(
-        "models/darkmod/lights/non-extinguishable/round_lantern_sitting/round_lantern_sitting.gltf"
-    )
-)]
-#[reflect(Component)]
-#[component(on_add = setup_prop::<LampSitting>(RigidBody::Dynamic, ColliderConstructor::ConvexHullFromMesh))]
-struct LampSitting;
 
 fn main() {
     App::new()
@@ -50,19 +26,12 @@ fn main() {
         .insert_resource(ClearColor(tailwind::SKY_800.into()))
         .add_systems(Startup, setup)
         .add_observer(add_player)
-        .add_interaction::<Chair>()
-        .add_observer(on_collect_chair)
         .init_state::<Screen>()
         .run();
 }
 
 fn setup(mut commands: Commands, assets: Res<AssetServer>) {
     commands.spawn(WorldAssetRoot(assets.load("maps/test/test.map#Scene")));
-}
-
-fn on_collect_chair(on: On<InteractionEnd<Chair>>, mut commands: Commands) {
-    commands.entity(on.entity).despawn();
-    info!("Collected");
 }
 
 fn add_player(
