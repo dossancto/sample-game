@@ -1,6 +1,6 @@
 [workspace]
 resolver = "3"
-members = ["core", "crates/keybinds/keybinds", "crates/keybinds/keybinds_gateway", "crates/levels/level", "crates/levels/level_gateway", "crates/levels/level_utils", "crates/mechanics/interaction/interaction", "crates/mechanics/interaction/interaction_gateway", "crates/player/player", "crates/player/player_gateway", "crates/third_parties"]
+members = ["core", "crates/keybinds/keybinds", "crates/keybinds/keybinds_gateway", "crates/levels/level", "crates/levels/level_gateway", "crates/levels/level_utils", "crates/mechanics/interaction/interaction", "crates/mechanics/interaction/interaction_gateway", "crates/player/player", "crates/player/player_gateway", "crates/third_parties", "crates/utils/utils"]
 
 
 [workspace.dependencies]
@@ -38,6 +38,7 @@ keybinds = {path = "./crates/keybinds/keybinds"}
 
 interaction = { path = "./crates/mechanics/interaction/interaction" }
 interaction_gateway = { path = "./crates/mechanics/interaction/interaction_gateway" }
+utils = { path = "./crates/utils/utils" }
 
 [workspace.lints.clippy]
 

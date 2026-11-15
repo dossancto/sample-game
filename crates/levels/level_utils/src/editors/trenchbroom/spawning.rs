@@ -18,23 +18,14 @@ pub fn setup_prop<T: QuakeClass>(
         }
         world.commands().queue(move |world: &mut World| {
             let asset_server = world.get_asset_server().clone();
+
             world.entity_mut(ctx.entity).insert(quake_bundle::<T>(
                 asset_server,
                 rigid_body,
                 collider,
             ));
-            world.entity_mut(ctx.entity).insert((
-                ColliderDensity(1_000.0),
-                Collider::cuboid(1.34, 1.35, 1.65),
-                CollisionLayers::new(
-                    [CollisionLayer::Interactable, CollisionLayer::Hittable],
-                    LayerMask::ALL,
-                ),
-                RigidBody::Dynamic,
-                Interactable {
-                    ..Default::default()
-                },
-            ));
+
+            world.entity_mut(ctx.entity).insert(Interactable::default());
         });
     }
 }
@@ -63,9 +54,11 @@ pub fn quake_bundle<T: QuakeClass>(
 
     (
         ColliderConstructorHierarchy::new(constructor)
-            .with_default_layers(CollisionLayers::new(CollisionLayer::Prop, LayerMask::ALL))
-            // About the density of oak wood (600-800 kg/m^3)
-            .with_default_density(800.0),
+            .with_default_layers(CollisionLayers::new(
+                CollisionLayer::Interactable,
+                LayerMask::ALL,
+            ))
+            .with_default_density(1_000.0),
         rigid_body,
         WorldAssetRoot(model),
     )

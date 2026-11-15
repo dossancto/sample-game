@@ -10,6 +10,7 @@ player_gateway.workspace = true
 third_parties.workspace = true
 level_gateway.workspace = true
 interaction_gateway.workspace = true
+utils.workspace = true
 
 [lints]
 workspace = true
