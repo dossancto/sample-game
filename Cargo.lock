@@ -3798,7 +3798,11 @@ dependencies = [
 name = "interaction"
 version = "0.1.0"
 dependencies = [
+ "avian3d",
  "bevy",
+ "level_gateway",
+ "player_gateway",
+ "third_parties",
 ]
 
 [[package]]
@@ -4210,6 +4214,7 @@ dependencies = [
  "bevy_ahoy",
  "bevy_skein",
  "bevy_trenchbroom",
+ "interaction",
  "keybinds",
  "level",
  "level_gateway",

@@ -41,6 +41,7 @@ fn main() {
             level::plugin,
             player::plugin,
             keybinds::plugin,
+            interaction::plugin,
         ))
         .insert_resource(ClearColor(tailwind::SKY_800.into()))
         .add_systems(Startup, setup)
