@@ -1,6 +1,6 @@
 [workspace]
 resolver = "3"
-members = ["core", "crates/keybinds/keybinds", "crates/keybinds/keybinds_gateway", "crates/levels/level", "crates/levels/level_gateway", "crates/levels/level_utils", "crates/player/player", "crates/player/player_gateway", "crates/third_parties"]
+members = ["core", "crates/keybinds/keybinds", "crates/keybinds/keybinds_gateway", "crates/levels/level", "crates/levels/level_gateway", "crates/levels/level_utils", "crates/mechanics/interaction/interaction", "crates/player/player", "crates/player/player_gateway", "crates/third_parties"]
 
 
 [workspace.dependencies]
