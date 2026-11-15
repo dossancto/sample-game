@@ -37,6 +37,7 @@ third_parties = { path = "./crates/third_parties" }
 keybinds = {path = "./crates/keybinds/keybinds"}
 
 interaction = { path = "./crates/mechanics/interaction/interaction" }
+interaction_gateway = { path = "./crates/mechanics/interaction/interaction_gateway" }
 
 [workspace.lints.clippy]
 

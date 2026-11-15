@@ -1,12 +1,14 @@
 use avian3d::prelude::{SpatialQuery, SpatialQueryFilter};
 use bevy::prelude::*;
+use interaction_gateway::{
+    configurations::player::{InteractionSourceCamera, InterationConfiguration},
+    extensions::add_interactable::{Interactable, Interacting, ReadForInteract},
+};
 use level_gateway::Screen;
 use player_gateway::Player;
 use third_parties::packages::avian3d::CollisionLayer;
 
-use crate::{core::configuration::{InteractionSourceCamera, InterationConfiguration}, extensions::add_interactable::{Interactable, Interacting, ReadForInteract}};
-
-pub(super) fn plugin(app: &mut App){
+pub(super) fn plugin(app: &mut App) {
     app.add_systems(Update, can_interact.run_if(in_state(Screen::Gameplay)));
 }
 
