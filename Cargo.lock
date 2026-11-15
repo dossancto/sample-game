@@ -4223,6 +4223,7 @@ dependencies = [
  "bevy_skein",
  "bevy_trenchbroom",
  "interaction",
+ "interaction_gateway",
  "keybinds",
  "level",
  "level_gateway",

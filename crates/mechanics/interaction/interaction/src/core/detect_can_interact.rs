@@ -2,7 +2,7 @@ use avian3d::prelude::{SpatialQuery, SpatialQueryFilter};
 use bevy::prelude::*;
 use interaction_gateway::{
     configurations::player::{InteractionSourceCamera, InterationConfiguration},
-    extensions::add_interactable::{Interactable, Interacting, ReadForInteract},
+    extensions::add_interactable::{Interactable, Interacting, ReadyForInteract},
 };
 use level_gateway::Screen;
 use player_gateway::Player;
@@ -14,7 +14,7 @@ pub(super) fn plugin(app: &mut App) {
 
 fn can_interact(
     interactables_q: Query<(&Interactable, Option<&Interacting>)>,
-    mut can_interact_q: Query<Entity, With<ReadForInteract>>,
+    mut can_interact_q: Query<Entity, With<ReadyForInteract>>,
     interation_configuration: Single<&InterationConfiguration>,
     player: Single<(&GlobalTransform, Entity), With<InteractionSourceCamera>>,
     player_collider: Single<Entity, With<Player>>,
@@ -44,7 +44,7 @@ fn can_interact(
                 continue;
             }
         }
-        commands.entity(entity).remove::<ReadForInteract>();
+        commands.entity(entity).remove::<ReadyForInteract>();
     }
 
     let Some(hit) = hit else {
@@ -59,5 +59,5 @@ fn can_interact(
         return;
     }
 
-    commands.entity(hit.entity).insert_if_new(ReadForInteract);
+    commands.entity(hit.entity).insert_if_new(ReadyForInteract);
 }

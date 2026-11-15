@@ -57,7 +57,7 @@ impl Default for Interactable {
 pub trait CanInteract: Component + Clone {}
 
 #[derive(Component)]
-pub struct ReadForInteract;
+pub struct ReadyForInteract;
 
 #[derive(Component)]
 pub struct Interacting {

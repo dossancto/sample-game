@@ -5,6 +5,7 @@ use bevy::{
     prelude::*,
 };
 use bevy_trenchbroom::prelude::*;
+use interaction_gateway::extensions::add_interactable::Interactable;
 use level_gateway::Screen;
 use level_utils::editors::trenchbroom::spawning::setup_prop;
 use player_gateway::Player;
@@ -58,7 +59,12 @@ fn add_player(
     // TODO: Change the Chair to some player spawner
     insert: On<Insert, Chair>,
     mut next_screen: ResMut<NextState<Screen>>,
-    mut commands: Commands, spawner: Query<&Transform>) {
+    mut commands: Commands,
+    spawner: Query<&Transform>,
+) {
+    commands
+        .entity(insert.entity)
+        .insert_if_new((Interactable::default(),));
 
     let Ok(transform) = spawner.get(insert.entity).copied() else {
         return;

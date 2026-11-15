@@ -24,6 +24,7 @@ player_gateway.workspace = true
 third_parties.workspace = true
 keybinds.workspace = true
 interaction.workspace = true
+interaction_gateway.workspace = true
 
 [lints]
 workspace = true
