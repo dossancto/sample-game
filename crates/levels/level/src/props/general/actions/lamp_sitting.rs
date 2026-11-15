@@ -1,15 +1,15 @@
 use avian3d::prelude::{ColliderConstructor, RigidBody};
+use bag_gateway::components::collectable_item::CollectableItemStats;
 use bevy::prelude::*;
 use bevy_trenchbroom::prelude::*;
-use interaction_gateway::{
-    extensions::add_interactable::{AddInteractable, CanInteract, Interactable},
-    handlers::collect::InteractionEnd,
+use interaction_gateway::extensions::add_interactable::{
+    AddInteractable, CanInteract, Interactable,
 };
 use level_utils::editors::trenchbroom::spawning::setup_prop;
 
 pub(super) fn plugin(app: &mut App) {
     app.add_interaction::<LampSitting>();
-    app.add_observer(on_collect).add_observer(add_behavior);
+    app.add_observer(add_behavior);
 }
 
 #[point_class(
@@ -25,13 +25,12 @@ pub struct LampSitting;
 
 impl CanInteract for LampSitting {}
 
-fn on_collect(on: On<InteractionEnd<LampSitting>>, mut commands: Commands) {
-    commands.entity(on.entity).despawn();
-    info!("Collected");
-}
-
 fn add_behavior(on: On<Add, LampSitting>, mut commands: Commands) {
-    commands.entity(on.entity).insert_if_new((Interactable {
-        ..default()
-    },));
+    commands.entity(on.entity).insert_if_new((
+        Interactable { ..default() },
+        CollectableItemStats {
+            volume: 1f64,
+            density: 1f64,
+        },
+    ));
 }

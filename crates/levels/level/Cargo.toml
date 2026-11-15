@@ -13,5 +13,7 @@ avian3d.workspace = true
 level_utils.workspace = true
 interaction_gateway.workspace = true
 
+bag_gateway.workspace = true
+
 [lints]
 workspace = true

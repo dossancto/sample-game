@@ -442,6 +442,24 @@ dependencies = [
 ]
 
 [[package]]
+name = "bag"
+version = "0.1.0"
+dependencies = [
+ "bag_gateway",
+ "bevy",
+ "interaction_gateway",
+ "level",
+]
+
+[[package]]
+name = "bag_gateway"
+version = "0.1.0"
+dependencies = [
+ "bevy",
+ "bevy_enhanced_input",
+]
+
+[[package]]
 name = "base64"
 version = "0.13.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4022,6 +4040,7 @@ name = "level"
 version = "0.1.0"
 dependencies = [
  "avian3d",
+ "bag_gateway",
  "bevy",
  "bevy_skein",
  "bevy_trenchbroom",
@@ -4226,6 +4245,8 @@ name = "my-blend"
 version = "0.1.0"
 dependencies = [
  "avian3d",
+ "bag",
+ "bag_gateway",
  "bevy",
  "bevy_ahoy",
  "bevy_skein",
