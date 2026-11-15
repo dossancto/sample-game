@@ -2,6 +2,7 @@ use bevy::prelude::*;
 use bevy_ahoy::prelude::*;
 use bevy_enhanced_input::prelude::*;
 
+use interaction_gateway::actions::InteractionAction;
 use player_gateway::Player;
 
 pub(super) fn plugin(app: &mut App) {
@@ -36,6 +37,11 @@ fn setup_player_actions(on: On<Add, Player>, mut commands: Commands) {
                 Spawn(Binding::mouse_motion()),
                 Axial::right_stick()
             ))
+        ),
+        (
+            Action::<InteractionAction>::new(),
+            Hold::new(999f32).one_shot(false),
+            bindings![KeyCode::KeyE, GamepadButton::West]
         ),
     ]));
 }

@@ -3800,6 +3800,7 @@ version = "0.1.0"
 dependencies = [
  "avian3d",
  "bevy",
+ "bevy_enhanced_input",
  "interaction_gateway",
  "level_gateway",
  "player_gateway",
@@ -3812,6 +3813,7 @@ name = "interaction_gateway"
 version = "0.1.0"
 dependencies = [
  "bevy",
+ "bevy_enhanced_input",
 ]
 
 [[package]]
@@ -3975,6 +3977,7 @@ dependencies = [
  "bevy",
  "bevy_ahoy",
  "bevy_enhanced_input",
+ "interaction_gateway",
  "player_gateway",
 ]
 
