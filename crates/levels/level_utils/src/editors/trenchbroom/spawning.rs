@@ -1,5 +1,3 @@
-use std::time::Duration;
-
 use avian3d::prelude::*;
 use bevy::{
     asset::io::embedded::GetAssetServer,
@@ -7,7 +5,6 @@ use bevy::{
     prelude::*,
 };
 use bevy_trenchbroom::prelude::*;
-use interaction_gateway::extensions::add_interactable::Interactable;
 use third_parties::packages::avian3d::CollisionLayer;
 
 pub fn setup_prop<T: QuakeClass>(
@@ -26,11 +23,6 @@ pub fn setup_prop<T: QuakeClass>(
                 rigid_body,
                 collider,
             ));
-
-            world.entity_mut(ctx.entity).insert(Interactable{
-                time_to_interact: Duration::from_secs_f64(1.5f64),
-                ..default()
-            });
         });
     }
 }
