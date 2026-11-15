@@ -9,6 +9,7 @@ use interaction_gateway::extensions::add_interactable::Interactable;
 use level_gateway::Screen;
 use level_utils::editors::trenchbroom::spawning::setup_prop;
 use player_gateway::Player;
+use third_parties::packages::avian3d::CollisionLayer;
 
 #[point_class(
     base(Transform, Visibility),
@@ -62,10 +63,6 @@ fn add_player(
     mut commands: Commands,
     spawner: Query<&Transform>,
 ) {
-    commands
-        .entity(insert.entity)
-        .insert_if_new((Interactable::default(),));
-
     let Ok(transform) = spawner.get(insert.entity).copied() else {
         return;
     };

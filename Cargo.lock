@@ -4041,7 +4041,9 @@ dependencies = [
  "bevy",
  "bevy_ahoy",
  "bevy_trenchbroom",
+ "interaction_gateway",
  "level_gateway",
+ "third_parties",
 ]
 
 [[package]]
@@ -5098,8 +5100,10 @@ dependencies = [
  "avian3d",
  "bevy",
  "bevy_ahoy",
+ "interaction_gateway",
  "level_gateway",
  "player_gateway",
+ "third_parties",
 ]
 
 [[package]]

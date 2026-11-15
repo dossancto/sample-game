@@ -5,7 +5,8 @@ use bevy::{
     prelude::*,
 };
 use bevy_trenchbroom::prelude::*;
-use level_gateway::CollisionLayer;
+use interaction_gateway::extensions::add_interactable::Interactable;
+use third_parties::packages::avian3d::CollisionLayer;
 
 pub fn setup_prop<T: QuakeClass>(
     rigid_body: RigidBody,
@@ -22,13 +23,18 @@ pub fn setup_prop<T: QuakeClass>(
                 rigid_body,
                 collider,
             ));
-            world
-                .entity_mut(ctx.entity)
-                .insert((ColliderConstructorHierarchy::new(
-                    ColliderConstructor::ConvexHullFromMesh,
-                )
-                .with_default_layers(CollisionLayers::new(CollisionLayer::Prop, LayerMask::ALL))
-                .with_default_density(1_000.0),));
+            world.entity_mut(ctx.entity).insert((
+                ColliderDensity(1_000.0),
+                Collider::cuboid(1.34, 1.35, 1.65),
+                CollisionLayers::new(
+                    [CollisionLayer::Interactable, CollisionLayer::Hittable],
+                    LayerMask::ALL,
+                ),
+                RigidBody::Dynamic,
+                Interactable {
+                    ..Default::default()
+                },
+            ));
         });
     }
 }
@@ -82,4 +88,3 @@ impl LoadTrenchbroomModel for AssetServer {
         self.load(T::scene_path())
     }
 }
-

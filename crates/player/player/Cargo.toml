@@ -9,6 +9,8 @@ player_gateway.workspace = true
 bevy_ahoy.workspace = true
 avian3d.workspace = true
 level_gateway.workspace = true
+interaction_gateway.workspace = true
+third_parties.workspace = true
 
 [lints]
 workspace = true

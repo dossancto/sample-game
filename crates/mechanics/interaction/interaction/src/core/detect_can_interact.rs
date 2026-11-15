@@ -13,7 +13,7 @@ pub(super) fn plugin(app: &mut App) {
 }
 
 fn can_interact(
-    interactables_q: Query<(&Interactable, Option<&Interacting>)>,
+    interactables_q: Query<(&Interactable, )>,
     mut can_interact_q: Query<Entity, With<ReadyForInteract>>,
     interation_configuration: Single<&InterationConfiguration>,
     player: Single<(&GlobalTransform, Entity), With<InteractionSourceCamera>>,
@@ -51,9 +51,13 @@ fn can_interact(
         return;
     };
 
-    let Ok((interactable_item, _interacting)) = interactables_q.get(hit.entity) else {
+    info!("{}", hit.entity);
+
+    let Ok((interactable_item,)) = interactables_q.get(hit.entity) else {
         return;
     };
+
+    info!("Hitting some prop");
 
     if interactable_item.blocked {
         return;
