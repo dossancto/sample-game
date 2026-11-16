@@ -14,7 +14,7 @@ fn spawn_character_controller(on: On<Add, Player>, mut commands: Commands) {
 
     commands.entity(player).insert((
         InterationConfiguration {
-            interaction_distance: 2.0,
+            interaction_distance: 20.0,
         },
         CharacterController::default(),
         RigidBody::Kinematic,
