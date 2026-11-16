@@ -52,10 +52,24 @@ pub(super) fn plugin(app: &mut App) {
 /// Panics if the query or command buffer is invalid or if entity removal fails unexpectedly.
 fn cancel_interaction(
     _on: On<Cancel<InteractionAction>>,
-    interactables_q: Query<(Entity, &mut Interacting, &Interactable)>,
+    interactables_q: Query<(
+        Entity,
+        Option<&Interacting>,
+        Option<&InteractionLocked>,
+        &Interactable,
+    )>,
     mut commands: Commands,
 ) {
-    for (entity, interacting, interactable) in interactables_q.iter() {
+    for (entity, interacting, locked, interactable) in interactables_q.iter() {
+
+        if locked.is_some() {
+            commands.entity(entity).remove::<InteractionLocked>();
+        }
+
+        let Some(interacting) = interacting else {
+            continue;
+        };
+
         if interacting.time_to_interact.is_finished() {
             continue;
         }
@@ -94,7 +108,12 @@ fn cancel_interaction(
 /// Panics if required singletons or queries are missing, or if command buffer operations fail unexpectedly.
 fn active_interaction(
     _on: On<Ongoing<InteractionAction>>,
-    interactables_q: Query<(&ReadyForInteract, Option<&Interacting>, &Interactable)>,
+    interactables_q: Query<(
+        &ReadyForInteract,
+        Option<&Interacting>,
+        Option<&InteractionLocked>,
+        &Interactable,
+    )>,
     parents_q: Query<&ChildOf>,
     interation_configuration: Single<&InterationConfiguration>,
     player: Single<(&GlobalTransform, Entity), With<InteractionSourceCamera>>,
@@ -123,13 +142,17 @@ fn active_interaction(
         return;
     };
 
-    let Some((entity, (_is_hitteable, interacting, interactable))) =
+    let Some((entity, (_is_hitteable, interacting, locked, interactable))) =
         find_in_ancestors(hit.entity, &interactables_q, &parents_q)
     else {
         return;
     };
 
-    commands.entity(entity).remove::<InteractionLocked>();
+    // The button is still held after the interaction completed. Do not start
+    // another interaction until the corresponding Cancel event releases it.
+    if locked.is_some() {
+        return;
+    }
 
     if let Some(interacting) = interacting {
         if interacting.time_to_interact.is_finished() == false {
@@ -137,6 +160,7 @@ fn active_interaction(
         }
 
         commands.entity(entity).remove::<Interacting>();
+        commands.entity(entity).insert(InteractionLocked);
         commands.trigger(TriggerInteraction { entity });
     } else {
         commands
