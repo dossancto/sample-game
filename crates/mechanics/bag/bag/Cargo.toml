@@ -8,6 +8,7 @@ bevy.workspace = true
 bag_gateway.workspace = true
 interaction_gateway.workspace = true
 level.workspace = true
+menus_gateway.workspace = true
 
 [lints]
 workspace = true

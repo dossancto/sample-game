@@ -43,6 +43,8 @@ utils = { path = "./crates/utils/utils" }
 
 bag = { path = "./crates/mechanics/bag/bag" }
 bag_gateway = { path = "./crates/mechanics/bag/bag_gateway" }
+menus = { path = "./crates/menus/menus" }
+menus_gateway = { path = "./crates/menus/menus_gateway" }
 
 [workspace.lints.clippy]
 

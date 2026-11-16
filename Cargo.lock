@@ -449,6 +449,7 @@ dependencies = [
  "bevy",
  "interaction_gateway",
  "level",
+ "menus_gateway",
 ]
 
 [[package]]
@@ -4205,6 +4206,21 @@ dependencies = [
 ]
 
 [[package]]
+name = "menus"
+version = "0.1.0"
+dependencies = [
+ "bevy",
+ "menus_gateway",
+]
+
+[[package]]
+name = "menus_gateway"
+version = "0.1.0"
+dependencies = [
+ "bevy",
+]
+
+[[package]]
 name = "miniz_oxide"
 version = "0.8.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4258,6 +4274,7 @@ dependencies = [
  "level_gateway",
  "level_utils",
  "log",
+ "menus",
  "player",
  "player_gateway",
  "third_parties",

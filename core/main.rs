@@ -23,6 +23,7 @@ fn main() {
             keybinds::plugin,
             interaction::plugin,
             bag::plugin,
+            menus::plugin,
         ))
         .insert_resource(ClearColor(tailwind::SKY_800.into()))
         .add_systems(Startup, setup)

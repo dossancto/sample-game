@@ -28,6 +28,7 @@ interaction_gateway.workspace = true
 
 bag.workspace = true
 bag_gateway.workspace = true
+menus.workspace = true
 
 [lints]
 workspace = true
