@@ -21,6 +21,7 @@ fn put_item_on_bag(
 
     if bag.can_add_volume(stats.volume) == false {
         commands.trigger(ToastEvent::warning(
+            "bag-volume-full",
             "There is not enough space in your bag.",
             Duration::from_secs(3),
         ));
@@ -29,6 +30,7 @@ fn put_item_on_bag(
 
     if bag.can_add_mass(stats.mass()) == false {
         commands.trigger(ToastEvent::warning(
+            "bag-too-heavy",
             "This item is too heavy for your bag.",
             Duration::from_secs(3),
         ));
