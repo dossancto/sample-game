@@ -4241,6 +4241,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "money"
+version = "0.1.0"
+
+[[package]]
+name = "money_gateway"
+version = "0.1.0"
+dependencies = [
+ "bevy",
+]
+
+[[package]]
 name = "moxcms"
 version = "0.8.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"

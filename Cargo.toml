@@ -1,6 +1,6 @@
 [workspace]
 resolver = "3"
-members = ["core", "crates/keybinds/keybinds", "crates/keybinds/keybinds_gateway", "crates/levels/level", "crates/levels/level_gateway", "crates/levels/level_utils", "crates/mechanics/bag/bag", "crates/mechanics/bag/bag_gateway", "crates/mechanics/interaction/interaction", "crates/mechanics/interaction/interaction_gateway", "crates/menus/menus", "crates/menus/menus_gateway", "crates/player/player", "crates/player/player_gateway", "crates/third_parties", "crates/utils/utils"]
+members = ["core", "crates/keybinds/keybinds", "crates/keybinds/keybinds_gateway", "crates/levels/level", "crates/levels/level_gateway", "crates/levels/level_utils", "crates/mechanics/bag/bag", "crates/mechanics/bag/bag_gateway", "crates/mechanics/interaction/interaction", "crates/mechanics/interaction/interaction_gateway", "crates/mechanics/money/money", "crates/mechanics/money/money_gateway", "crates/menus/menus", "crates/menus/menus_gateway", "crates/player/player", "crates/player/player_gateway", "crates/third_parties", "crates/utils/utils"]
 
 
 [workspace.dependencies]
@@ -43,6 +43,8 @@ utils = { path = "./crates/utils/utils" }
 
 bag = { path = "./crates/mechanics/bag/bag" }
 bag_gateway = { path = "./crates/mechanics/bag/bag_gateway" }
+money = { path = "./crates/mechanics/money/money" }
+money_gateway = { path = "./crates/mechanics/money/money_gateway" }
 menus = { path = "./crates/menus/menus" }
 menus_gateway = { path = "./crates/menus/menus_gateway" }
 

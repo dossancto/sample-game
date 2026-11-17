@@ -41,3 +41,18 @@
 "classname" "lamp_sitting"
 "origin" "152 -72 24"
 }
+// entity 6
+{
+"classname" "burning_logs"
+"origin" "8 232 24"
+}
+// entity 7
+{
+"classname" "burning_logs"
+"origin" "40 136 24"
+}
+// entity 8
+{
+"classname" "burning_logs"
+"origin" "24 24 24"
+}
