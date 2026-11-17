@@ -5,6 +5,7 @@ use interaction_gateway::extensions::add_interactable::{
     AddInteractable, CanInteract, Interactable,
 };
 use level_utils::editors::trenchbroom::spawning::setup_prop;
+use money_gateway::CollectableMoney;
 
 pub(super) fn plugin(app: &mut App) {
     app.add_interaction::<BurningLogs>();
@@ -27,5 +28,8 @@ impl CanInteract for BurningLogs {}
 fn add_behavior(on: On<Add, BurningLogs>, mut commands: Commands) {
     commands.entity(on.entity).insert_if_new((
         Interactable { ..default() },
+        CollectableMoney {
+            value: 1f64,
+        },
     ));
 }

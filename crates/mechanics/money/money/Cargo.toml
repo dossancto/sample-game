@@ -4,6 +4,10 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+bevy.workspace = true
+money_gateway.workspace = true
+interaction_gateway.workspace = true
+level.workspace = true
 
 [lints]
 workspace = true

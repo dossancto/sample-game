@@ -4048,6 +4048,7 @@ dependencies = [
  "interaction_gateway",
  "level_utils",
  "log",
+ "money_gateway",
  "tracing",
 ]
 
@@ -4243,6 +4244,12 @@ dependencies = [
 [[package]]
 name = "money"
 version = "0.1.0"
+dependencies = [
+ "bevy",
+ "interaction_gateway",
+ "level",
+ "money_gateway",
+]
 
 [[package]]
 name = "money_gateway"
@@ -4286,6 +4293,8 @@ dependencies = [
  "level_utils",
  "log",
  "menus",
+ "money",
+ "money_gateway",
  "player",
  "player_gateway",
  "third_parties",
@@ -5158,6 +5167,7 @@ dependencies = [
  "bevy_ahoy",
  "interaction_gateway",
  "level_gateway",
+ "money_gateway",
  "player_gateway",
  "third_parties",
 ]

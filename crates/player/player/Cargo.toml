@@ -13,5 +13,7 @@ interaction_gateway.workspace = true
 third_parties.workspace = true
 bag_gateway.workspace = true
 
+money_gateway.workspace = true
+
 [lints]
 workspace = true

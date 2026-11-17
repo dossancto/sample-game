@@ -30,5 +30,8 @@ bag.workspace = true
 bag_gateway.workspace = true
 menus.workspace = true
 
+money.workspace = true
+money_gateway.workspace = true
+
 [lints]
 workspace = true

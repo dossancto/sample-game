@@ -1,8 +1,8 @@
 use bevy::prelude::*;
 
 pub mod bag;
+pub mod money;
 
-pub fn plugin(app: &mut App) {
-    app.add_plugins((bag::plugin,));
+pub(super) fn plugin(app: &mut App) {
+    app.add_plugins((bag::plugin, money::plugin));
 }
-
