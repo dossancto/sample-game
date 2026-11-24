@@ -1,5 +1,5 @@
 use aim_grid_gateway::actions::cell_moviments::{
-    MoveLeftHandToDown, MoveLeftHandToLeft, MoveLeftHandToRight, MoveLeftHandToUp,
+    MoveLeftHandToDown, MoveLeftHandToLeft, MoveLeftHandToRight, MoveLeftHandToUp, MoveRightHandToDown, MoveRightHandToLeft, MoveRightHandToRight, MoveRightHandToUp,
 };
 use bevy::prelude::*;
 use bevy_enhanced_input::prelude::*;
@@ -56,6 +56,26 @@ fn setup_player_actions(on: On<Add, Player>, mut commands: Commands) {
         (
             Action::<MoveLeftHandToRight>::new(),
             bindings![KeyCode::KeyD ]
+        ),
+
+        (
+            Action::<MoveRightHandToUp>::new(),
+            bindings![KeyCode::KeyK ]
+        ),
+
+        (
+            Action::<MoveRightHandToDown>::new(),
+            bindings![KeyCode::KeyJ ]
+        ),
+
+        (
+            Action::<MoveRightHandToLeft>::new(),
+            bindings![KeyCode::KeyH ]
+        ),
+
+        (
+            Action::<MoveRightHandToRight>::new(),
+            bindings![KeyCode::KeyL ]
         ),
     ]));
 }
