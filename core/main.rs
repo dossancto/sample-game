@@ -25,6 +25,7 @@ fn main() {
             bag::plugin,
             menus::plugin,
             money::plugin,
+            aim_grid::plugin,
         ))
         .insert_resource(ClearColor(tailwind::SKY_800.into()))
         .add_systems(Startup, setup)

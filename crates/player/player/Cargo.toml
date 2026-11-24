@@ -14,6 +14,7 @@ third_parties.workspace = true
 bag_gateway.workspace = true
 
 money_gateway.workspace = true
+aim_grid_gateway.workspace = true
 
 [lints]
 workspace = true

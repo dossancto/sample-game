@@ -1,0 +1,12 @@
+[package]
+name = "aim_grid"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+bevy.workspace = true
+aim_grid_gateway.workspace = true
+bevy_enhanced_input.workspace = true
+
+[lints]
+workspace = true

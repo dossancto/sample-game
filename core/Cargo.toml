@@ -33,5 +33,7 @@ menus.workspace = true
 money.workspace = true
 money_gateway.workspace = true
 
+aim_grid.workspace = true
+
 [lints]
 workspace = true

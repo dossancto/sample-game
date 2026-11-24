@@ -9,6 +9,7 @@ player_gateway.workspace = true
 bevy_enhanced_input.workspace = true
 bevy_ahoy.workspace = true
 interaction_gateway.workspace = true
+aim_grid_gateway.workspace = true
 
 [lints]
 workspace = true

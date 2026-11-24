@@ -117,6 +117,24 @@ dependencies = [
 ]
 
 [[package]]
+name = "aim_grid"
+version = "0.1.0"
+dependencies = [
+ "aim_grid_gateway",
+ "bevy",
+ "bevy_enhanced_input",
+]
+
+[[package]]
+name = "aim_grid_gateway"
+version = "0.1.0"
+dependencies = [
+ "bevy",
+ "bevy_enhanced_input",
+ "utils",
+]
+
+[[package]]
 name = "allocator-api2"
 version = "0.2.21"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3993,6 +4011,7 @@ checksum = "17ab85f84ca42c5ec520e6f3c9966ba1fd62909ce260f8837e248857d2560509"
 name = "keybinds"
 version = "0.1.0"
 dependencies = [
+ "aim_grid_gateway",
  "bevy",
  "bevy_ahoy",
  "bevy_enhanced_input",
@@ -4278,6 +4297,7 @@ checksum = "bc0287524726960e07b119cebd01678f852f147742ae0d925e6a520dca956126"
 name = "my-blend"
 version = "0.1.0"
 dependencies = [
+ "aim_grid",
  "avian3d",
  "bag",
  "bag_gateway",
@@ -5161,6 +5181,7 @@ checksum = "b4596b6d070b27117e987119b4dac604f3c58cfb0b191112e24771b2faeac1a6"
 name = "player"
 version = "0.1.0"
 dependencies = [
+ "aim_grid_gateway",
  "avian3d",
  "bag_gateway",
  "bevy",
