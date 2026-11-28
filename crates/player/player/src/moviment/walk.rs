@@ -1,12 +1,26 @@
 use bevy::prelude::*;
 use bevy_enhanced_input::action::events::{Cancel, Start};
-use player_gateway::{Player, actions::PlayerMoveFoward, components::PlayerMoving};
+use player_gateway::{
+    Player,
+    actions::PlayerMoveFoward,
+    components::{PlayerMovimentControll, PlayerMoving},
+};
 
 pub(super) fn plugin(app: &mut App) {
+    app.add_observer(spawn);
+
     app.add_observer(on_walk);
     app.add_observer(on_stop_walk);
 
     app.add_systems(Update, player_moving);
+}
+
+fn spawn(on: On<Add, Player>, mut commands: Commands) {
+    let player = on.entity;
+
+    commands
+        .entity(player)
+        .insert((PlayerMovimentControll { speed: 10f32 },));
 }
 
 fn on_walk(
@@ -26,15 +40,12 @@ fn on_stop_walk(
 }
 
 fn player_moving(
-    player: Single<(&mut Transform,), (With<Player>, With<PlayerMoving>)>,
+    player: Single<(&mut Transform, &PlayerMovimentControll), (With<Player>, With<PlayerMoving>)>,
     time: Res<Time>,
 ) {
-    let (mut player_transform,) = player.into_inner();
+    let (mut player_transform, controll) = player.into_inner();
 
     let foward = player_transform.forward();
 
-    // TODO: Put into a resource or configuration
-    let speed = 10f32;
-
-    player_transform.translation += *foward * speed * time.delta_secs();
+    player_transform.translation += *foward * controll.speed * time.delta_secs();
 }
