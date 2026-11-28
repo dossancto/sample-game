@@ -2,7 +2,7 @@ use bevy::prelude::*;
 use level_gateway::Screen;
 
 pub(super) fn plugin(app: &mut App) {
-    app.add_systems(OnEnter(Screen::Gameplay), spawn_crosshair);
+    // app.add_systems(OnEnter(Screen::Gameplay), spawn_crosshair);
 
     // app.add_observer(render_can_interact);
     // app.add_observer(remove_can_interact);

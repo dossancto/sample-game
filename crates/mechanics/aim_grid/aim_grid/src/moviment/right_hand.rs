@@ -6,7 +6,7 @@ use aim_grid_gateway::{
     utils::grid_point::GridPoint,
 };
 use bevy::prelude::*;
-use bevy_enhanced_input::action::events::Complete;
+use bevy_enhanced_input::action::events::Start;
 
 pub(super) fn plugin(app: &mut App) {
     app.add_observer(move_left)
@@ -15,27 +15,26 @@ pub(super) fn plugin(app: &mut App) {
         .add_observer(move_up);
 }
 
-fn move_left(_on: On<Complete<MoveRightHandToLeft>>, mut commands: Commands) {
+fn move_left(_on: On<Start<MoveRightHandToLeft>>, mut commands: Commands) {
     commands.trigger(MoveRightHandPosition {
         move_position: GridPoint::new(-1, 0),
     });
 }
 
-fn move_right(_on: On<Complete<MoveRightHandToRight>>, mut commands: Commands) {
+fn move_right(_on: On<Start<MoveRightHandToRight>>, mut commands: Commands) {
     commands.trigger(MoveRightHandPosition {
         move_position: GridPoint::new(1, 0),
     });
 }
 
-fn move_down(_on: On<Complete<MoveRightHandToUp>>, mut commands: Commands) {
+fn move_down(_on: On<Start<MoveRightHandToUp>>, mut commands: Commands) {
     commands.trigger(MoveRightHandPosition {
         move_position: GridPoint::new(0, -1),
     });
 }
 
-fn move_up(_on: On<Complete<MoveRightHandToDown>>, mut commands: Commands) {
+fn move_up(_on: On<Start<MoveRightHandToDown>>, mut commands: Commands) {
     commands.trigger(MoveRightHandPosition {
         move_position: GridPoint::new(0, 1),
     });
 }
-

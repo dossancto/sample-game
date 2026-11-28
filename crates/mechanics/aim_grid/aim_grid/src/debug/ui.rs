@@ -10,7 +10,8 @@ pub(super) fn plugin(app: &mut App) {
 struct GridDebugCurrentStateDebugUI;
 
 fn setup_debug_ui(mut commands: Commands) {
-    commands.spawn((        Name::new("Bag Content volume Text"),
+    commands.spawn((
+        Name::new("Bag Content volume Text"),
         Text::new("Cell hand debug UI"),
         GridDebugCurrentStateDebugUI,
         Node {
@@ -19,7 +20,7 @@ fn setup_debug_ui(mut commands: Commands) {
             left: px(12),
             ..default()
         },
-));
+    ));
 }
 
 fn render_debug_ui(
@@ -29,8 +30,10 @@ fn render_debug_ui(
 ) {
     let grid_txt = format!(
         "Left hand cell: {:?}/{:?}\nRight hand cell: {:?}/{:?}",
-        left_hand_current_cell.current_cell.x, left_hand_current_cell.current_cell.y,
-        right_hand_current_cell.current_cell.x, right_hand_current_cell.current_cell.y
+        left_hand_current_cell.current_cell.x,
+        left_hand_current_cell.current_cell.y,
+        right_hand_current_cell.current_cell.x,
+        right_hand_current_cell.current_cell.y
     );
 
     text.0 = grid_txt;

@@ -5,8 +5,10 @@ edition = "2024"
 
 [dependencies]
 bevy.workspace = true
-aim_grid_gateway.workspace = true
 bevy_enhanced_input.workspace = true
+
+aim_grid_gateway.workspace = true
+level_gateway.workspace = true
 
 [lints]
 workspace = true

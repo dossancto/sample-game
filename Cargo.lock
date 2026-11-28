@@ -123,6 +123,7 @@ dependencies = [
  "aim_grid_gateway",
  "bevy",
  "bevy_enhanced_input",
+ "level_gateway",
 ]
 
 [[package]]
