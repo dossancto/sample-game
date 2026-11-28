@@ -22,7 +22,7 @@ fn spawn(on: On<Add, Player>, mut commands: Commands) {
 
     commands.entity(player).insert((
         PlayerMovimentControll { speed: 10f32 },
-        CameraBounce::new(1f32, 0.3f32),
+        CameraBounce::new(2f32, 0.3f32),
     ));
 }
 

@@ -7,10 +7,13 @@ pub(super) fn plugin(app: &mut App) {
 
 fn while_walking(
     player: Single<(Option<&PlayerMoving>,), (With<Player>,)>,
+    mut camera_transform: Single<&mut Transform, With<Camera3d>>,
     time: Res<Time>,
     mut bounce_controll: Single<&mut CameraBounce>,
 ) {
     let (player_moving,) = player.into_inner();
+
+    let (yaw, pitch, _roll) = camera_transform.rotation.to_euler(EulerRot::YXZ);
 
     let is_moving = player_moving.is_some();
 
@@ -19,6 +22,7 @@ fn while_walking(
     }
 
     if bounce_controll.active == false {
+        camera_transform.rotation = Quat::from_euler(EulerRot::YXZ, yaw, pitch, 0f32);
         return;
     }
 
@@ -40,7 +44,9 @@ fn while_walking(
         return;
     }
 
-    info!("{}", y);
+    let new_roll = y.to_radians();
+
+    camera_transform.rotation = Quat::from_euler(EulerRot::YXZ, yaw, pitch, new_roll);
 
     bounce_controll.last_y = y;
 }
