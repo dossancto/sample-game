@@ -6,6 +6,8 @@ use player_gateway::{
     components::{PlayerMovimentControll, PlayerMoving},
 };
 
+use crate::moviment::camera_bounce::CameraBounce;
+
 pub(super) fn plugin(app: &mut App) {
     app.add_observer(spawn);
 
@@ -18,9 +20,10 @@ pub(super) fn plugin(app: &mut App) {
 fn spawn(on: On<Add, Player>, mut commands: Commands) {
     let player = on.entity;
 
-    commands
-        .entity(player)
-        .insert((PlayerMovimentControll { speed: 10f32 },));
+    commands.entity(player).insert((
+        PlayerMovimentControll { speed: 10f32 },
+        CameraBounce::default(),
+    ));
 }
 
 fn on_walk(
