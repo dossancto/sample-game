@@ -36,7 +36,7 @@ fn setup_player_actions(on: On<Add, Player>, mut commands: Commands) {
         (
             Action::<PlayerMoveFoward>::new(),
             Hold::new(999f32).one_shot(false),
-            bindings![KeyCode::KeyF, KeyCode::ShiftRight ]
+            bindings![KeyCode::ShiftLeft, KeyCode::ShiftRight ]
         ),
         (
             Action::<InteractionAction>::new(),

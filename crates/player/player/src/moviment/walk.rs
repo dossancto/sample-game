@@ -1,5 +1,5 @@
 use bevy::prelude::*;
-use bevy_enhanced_input::action::events::{Cancel, Ongoing};
+use bevy_enhanced_input::action::events::{Cancel, Start};
 use player_gateway::{Player, actions::PlayerMoveFoward, components::PlayerMoving};
 
 pub(super) fn plugin(app: &mut App) {
@@ -10,7 +10,7 @@ pub(super) fn plugin(app: &mut App) {
 }
 
 fn on_walk(
-    _on: On<Ongoing<PlayerMoveFoward>>,
+    _on: On<Start<PlayerMoveFoward>>,
     player: Single<Entity, With<Player>>,
     mut commands: Commands,
 ) {
