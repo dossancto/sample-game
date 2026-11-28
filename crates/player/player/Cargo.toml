@@ -16,5 +16,7 @@ bag_gateway.workspace = true
 money_gateway.workspace = true
 aim_grid_gateway.workspace = true
 
+bevy_enhanced_input.workspace = true
+
 [lints]
 workspace = true

@@ -1,11 +1,12 @@
 use aim_grid_gateway::actions::cell_moviments::{
-    MoveLeftHandToDown, MoveLeftHandToLeft, MoveLeftHandToRight, MoveLeftHandToUp, MoveRightHandToDown, MoveRightHandToLeft, MoveRightHandToRight, MoveRightHandToUp,
+    MoveLeftHandToDown, MoveLeftHandToLeft, MoveLeftHandToRight, MoveLeftHandToUp,
+    MoveRightHandToDown, MoveRightHandToLeft, MoveRightHandToRight, MoveRightHandToUp,
 };
 use bevy::prelude::*;
 use bevy_enhanced_input::prelude::*;
 
 use interaction_gateway::actions::InteractionAction;
-use player_gateway::Player;
+use player_gateway::{Player, actions::PlayerMoveFoward};
 
 pub(super) fn plugin(app: &mut App) {
     app.add_input_context::<Player>();
@@ -32,6 +33,11 @@ fn setup_player_actions(on: On<Add, Player>, mut commands: Commands) {
         //         Axial::right_stick()
         //     ))
         // ),
+        (
+            Action::<PlayerMoveFoward>::new(),
+            Hold::new(999f32).one_shot(false),
+            bindings![KeyCode::KeyF, KeyCode::ShiftRight ]
+        ),
         (
             Action::<InteractionAction>::new(),
             Hold::new(999f32).one_shot(false),

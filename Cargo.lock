@@ -3875,6 +3875,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "items"
+version = "0.1.0"
+
+[[package]]
+name = "items_gateway"
+version = "0.1.0"
+
+[[package]]
 name = "itertools"
 version = "0.10.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -5187,6 +5195,7 @@ dependencies = [
  "bag_gateway",
  "bevy",
  "bevy_ahoy",
+ "bevy_enhanced_input",
  "interaction_gateway",
  "level_gateway",
  "money_gateway",
@@ -5199,6 +5208,7 @@ name = "player_gateway"
 version = "0.1.0"
 dependencies = [
  "bevy",
+ "bevy_enhanced_input",
 ]
 
 [[package]]
