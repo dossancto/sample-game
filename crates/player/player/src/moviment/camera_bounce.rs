@@ -22,12 +22,11 @@ fn while_walking(
         return;
     }
 
-    let height = 1f32;
+    let height = bounce_controll.intensity;
+
+    let frequency = bounce_controll.frequency;
 
     let offset = 0f32;
-
-    let frequency = 0.3f32;
-
     let range = 0f32;
 
     let x = time.elapsed_secs();
@@ -50,6 +49,9 @@ fn while_walking(
 pub struct CameraBounce {
     pub last_y: f32,
     pub active: bool,
+
+    pub intensity: f32,
+    pub frequency: f32,
 }
 
 impl CameraBounce {
@@ -58,5 +60,13 @@ impl CameraBounce {
         let still_positive = current_y.is_sign_positive();
 
         return was_positive != still_positive;
+    }
+
+    pub fn new(intensity: f32, frequency: f32) -> Self {
+        Self {
+            intensity: intensity,
+            frequency: frequency,
+            ..Default::default()
+        }
     }
 }
